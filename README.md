@@ -1,2 +1,3 @@
-# Iot-Control-Panel
-物联网控制面板
+#HTML_ROOT
+
+This folder include introduction page of the priject and the demo iot control panel.

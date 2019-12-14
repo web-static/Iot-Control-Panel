@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Iot Control Panel</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <!-- Custom Styles theme -->
+  <link rel="stylesheet" href="css/panel.css">
+
+  <script type="text/javascript" src="js/global.js"></script>
+  <script type="text/javascript" src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+  <script>
+    login_check();
+    var CaptFlag = -1;
+
+    window.actionCaptCallback = function (res) {
+      console.log(res)
+      // res（用户主动关闭验证码）= {ret: 2, ticket: null}
+      // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
+      CaptFlag = res.ret;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="navbar-header">
+            <span class="navbar-brand">Iot Control Panel</span>
+          </div>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="https://iot.iisjy.cn/" target="_blank">Iot Project Homepage</a>
+            </li>
+            <li>
+              <a onclick="logout()">退出登录</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Nav Bar End -->
+
+
+
+    <!-- Connection info panel -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Status
+          </div>
+          <div class="panel-body" id="serverCollapse">
+            <form>
+              <div class="row">
+
+
+                <div class="col-lg-8">
+                  <div class="form-group">
+                    <!-- <label for="clientIdInput">Status</label> -->
+                    <span id="connectionStatus">Connection - Disconnected.</span>
+                    <input type="hidden" class="form-control" id="clientIdInput" value="javascript-client" />
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- End of Connection info panel -->
+
+        <div class="row ">
+          <!-- Publish panel -->
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Action
+              </div>
+              <div class="panel-body" id="publishCollapse">
+                <table id="device_ctrl_bt_list">
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Publish panel -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Source Paho MQTT Client-->
+  <script src="js/paho-mqtt.js"></script>
+
+  <!-- Utility Javascript -->
+  <script src="js/panel.js"></script>
+
+  <!-- Javascript used for Bootstrap Theme -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- 隐藏区域 -->
+  <div hidden id="TencentCaptcha" data-appid="2093357221" data-cbfn="actionCaptCallback" name="doActionCaptcha">隐藏区域
+  </div>
+
+  <script>
+    connect();
+    initDeviceList();
+  </script>
+</body>
+
+</html>
