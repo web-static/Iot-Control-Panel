@@ -1,0 +1,50 @@
+[
+    {
+        "controller_ID": "x5ssl431",
+        "device_ID": "0000",
+        "device_describe": "床上的小灯",
+        "device_type": "light",
+        "fun": [
+            {
+                "name": "off",
+                "fun_id": "0"
+            },
+            {
+                "name": "open",
+                "fun_id": "1"
+            }
+        ]
+    },
+    {
+        "device_ID": "0001",
+        "controller_ID": "x5ssl431",
+        "device_describe": "宿舍西侧灯",
+        "device_type": "light",
+        "fun": [
+            {
+                "name": "off",
+                "fun_id": "2"
+            },
+            {
+                "name": "open",
+                "fun_id": "3"
+            }
+        ]
+    },
+    {
+        "device_ID": "0002",
+        "controller_ID": "x5ssl431",
+        "device_describe": "宿舍东侧灯",
+        "device_type": "light",
+        "fun": [
+            {
+                "name": "off",
+                "fun_id": "4"
+            },
+            {
+                "name": "open",
+                "fun_id": "5"
+            }
+        ]
+    }
+]
